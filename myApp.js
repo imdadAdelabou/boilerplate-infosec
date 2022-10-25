@@ -8,6 +8,7 @@ app.use(express.static("public"));
 app.use(helmet.hidePoweredBy());
 app.use(helmet.frameguard({ action: "deny" }));
 app.use(helmet.xssFilter());
+app.use(helmet.noSniff());
 app.disable("strict-transport-security");
 app.use("/_api", api);
 app.get("/", function(request, response) {
