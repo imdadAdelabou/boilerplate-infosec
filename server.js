@@ -3,8 +3,8 @@
  * the verification process may break
  *******************************************/
 
-var express = require("express");
 const bcrypt = require("bcrypt");
+var express = require("express");
 var app = express();
 app.disable("x-powered-by");
 var fs = require("fs");
