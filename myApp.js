@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const helmet = require("helmet");
-var bcrypt = require("bcrypt");
 
 const timeInSeconds = 90 * 24 * 60 * 60;
 
