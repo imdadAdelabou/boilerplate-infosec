@@ -3,7 +3,6 @@
  * the verification process may break
  *******************************************/
 
-const bcrypt = require("bcrypt");
 var express = require("express");
 var app = express();
 app.disable("x-powered-by");
@@ -48,6 +47,7 @@ app.get("/file/*?", function(req, res, next) {
 });
 
 var main = require("./myApp.js");
+var bcrypt = require("bcrypt");
 app.get("/app-info", function(req, res) {
     // list middlewares mounted on the '/' camper's app
     var appMainRouteStack = main._router.stack
