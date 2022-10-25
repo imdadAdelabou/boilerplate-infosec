@@ -15,7 +15,12 @@ app.use(
     helmet.hsts({ maxAge: timeInSeconds, force: true }),
     helmet.dnsPrefetchControl(),
     helmet.noCache(),
-    helmet.contentSecurityPolicy({ directives: { defaultSrc: ["'self'"] } })
+    helmet.contentSecurityPolicy({
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: ["'self'", "trusted-cdn.com"],
+        },
+    })
 );
 app.disable("strict-transport-security");
 app.use("/_api", api);
