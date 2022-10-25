@@ -8,6 +8,19 @@ var app = express();
 app.disable("x-powered-by");
 var fs = require("fs");
 var path = require("path");
+const bcrypt = require("bcrypt");
+
+app.use(
+    helmet.hsts({ maxAge: timeInSeconds, force: true }),
+    helmet.dnsPrefetchControl(),
+    helmet.noCache(),
+    helmet.contentSecurityPolicy({
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: ["'self'", "trusted-cdn.com"],
+        },
+    })
+);
 
 app.use(function(req, res, next) {
     res.set({
