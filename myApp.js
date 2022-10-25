@@ -13,7 +13,8 @@ app.use(helmet.xssFilter());
 app.use(helmet.noSniff(), helmet.ieNoOpen());
 app.use(
     helmet.hsts({ maxAge: timeInSeconds, force: true }),
-    helmet.dnsPrefetchControl()
+    helmet.dnsPrefetchControl(),
+    helmet.noCache()
 );
 app.disable("strict-transport-security");
 app.use("/_api", api);
