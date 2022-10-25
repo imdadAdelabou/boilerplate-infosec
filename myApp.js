@@ -14,7 +14,8 @@ app.use(helmet.noSniff(), helmet.ieNoOpen());
 app.use(
     helmet.hsts({ maxAge: timeInSeconds, force: true }),
     helmet.dnsPrefetchControl(),
-    helmet.noCache()
+    helmet.noCache(),
+    helmet.contentSecurityPolicy({ directives: { defaultSrc: ["'self'"] } })
 );
 app.disable("strict-transport-security");
 app.use("/_api", api);
