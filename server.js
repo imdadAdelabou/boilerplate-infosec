@@ -9,6 +9,7 @@ app.disable("x-powered-by");
 var fs = require("fs");
 var path = require("path");
 var bcrypt = require("bcrypt");
+var helmet = require("helmet");
 
 app.use(
     helmet.hsts({ maxAge: timeInSeconds, force: true }),
