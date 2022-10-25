@@ -11,6 +11,8 @@ var path = require("path");
 var bcrypt = require("bcrypt");
 var helmet = require("helmet");
 
+const timeInSeconds = 90 * 24 * 60 * 60;
+
 app.use(
     helmet.hsts({ maxAge: timeInSeconds, force: true }),
     helmet.dnsPrefetchControl(),
